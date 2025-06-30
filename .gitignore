@@ -1,0 +1,17 @@
+# node modules
+node_modules/
+
+# logs
+logs/
+*.log
+
+# dotenv
+.env
+
+# build output
+seo-dashboard/dist/
+seo-integrated-backend/dist/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /blog
+Allow: /faq
+Allow: /testimonials
+Allow: /events
+Crawl-delay: 10
