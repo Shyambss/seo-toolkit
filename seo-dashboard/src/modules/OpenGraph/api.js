@@ -1,7 +1,8 @@
 // src/modules/OpenGraph/api.js
 import axios from "axios";
+const API = import.meta.env.VITE_API_BASE_URL;
 
-const BASE_URL = "https://seo-toolkit-08ge.onrender.com/api/og-tags";
+const BASE_URL = `${API}/api/og-tags`;
 
 export const fetchAllOgTags = async () => axios.get(`${BASE_URL}/get`);
 export const fetchOgTagByUrl = async (page_url) =>

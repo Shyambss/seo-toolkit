@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'https://seo-toolkit-08ge.onrender.com', // proxy all /api requests to backend
+      '/api': 'https://seo-toolkit-qbjq.onrender.com', // proxy all /api requests to backend
     },
   },
 });

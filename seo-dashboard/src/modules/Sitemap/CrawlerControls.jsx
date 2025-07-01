@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const API = import.meta.env.VITE_API_BASE_URL;
+
 export default function CrawlerControls() {
   const [loading, setLoading] = useState(false);
   const [lastChecked, setLastChecked] = useState(null);
 
   const fetchStatus = async () => {
     try {
-<<<<<<< HEAD
-      const res = await axios.get('http://localhost:5000/api/sitemap/status');
-=======
-      const res = await axios.get('https://seo-toolkit-08ge.onrender.com/api/sitemap/status');
->>>>>>> 6f38cf4 (Update frontend with latest changes)
+      const res = await axios.get(`${API}/api/sitemap/status`);
       setLastChecked(res.data.lastCheckedAt);
     } catch (err) {
       console.error('Failed to fetch crawl status', err);
@@ -21,11 +19,7 @@ export default function CrawlerControls() {
   const handleCrawl = async () => {
     setLoading(true);
     try {
-<<<<<<< HEAD
-      await axios.get('http://localhost:5000/api/sitemap/crawl-site');
-=======
-      await axios.get('https://seo-toolkit-08ge.onrender.com/api/sitemap/crawl-site');
->>>>>>> 6f38cf4 (Update frontend with latest changes)
+      await axios.get(`${API}/api/sitemap/crawl-site`);
       alert('Crawling completed and sitemap updated!');
       fetchStatus(); // Refresh last crawl time
     } catch (err) {

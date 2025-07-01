@@ -1,68 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-      <loc>http://localhost:5173/blog</loc>
-      <lastmod>2025-06-19T06:27:28.401Z</lastmod>
-      <priority>0.8</priority>
-      <changefreq>weekly</changefreq>
-    </url>
-    <url>
-      <loc>http://localhost:5173/faq</loc>
-      <lastmod>2025-06-15T10:43:08.652Z</lastmod>
-      <priority>0.4</priority>
-      <changefreq>yearly</changefreq>
-    </url>
-    <url>
-      <loc>http://localhost:5173/testimonials</loc>
-      <lastmod>2025-06-15T10:43:08.656Z</lastmod>
-      <priority>0.4</priority>
-      <changefreq>yearly</changefreq>
-    </url>
-    <url>
-      <loc>http://localhost:5173/events</loc>
-      <lastmod>2025-06-15T10:43:08.659Z</lastmod>
-      <priority>0.4</priority>
-      <changefreq>yearly</changefreq>
-    </url>
-    <url>
       <loc>http://localhost:5173/</loc>
-      <lastmod>2025-06-19T06:27:28.357Z</lastmod>
-      <priority>0.4</priority>
-      <changefreq>yearly</changefreq>
+      <lastmod>2025-07-01T15:42:53.265Z</lastmod>
+      <priority>1</priority>
+      <changefreq>daily</changefreq>
     </url>
     <url>
-      <loc>http://localhost:5173/open-graph</loc>
-      <lastmod>2025-06-19T06:27:28.382Z</lastmod>
-      <priority>0.4</priority>
-      <changefreq>yearly</changefreq>
-    </url>
-    <url>
-      <loc>http://localhost:5173/structured-data</loc>
-      <lastmod>2025-06-19T06:27:28.385Z</lastmod>
-      <priority>0.4</priority>
-      <changefreq>yearly</changefreq>
-    </url>
-    <url>
-      <loc>http://localhost:5173/sitemap</loc>
-      <lastmod>2025-06-19T06:27:28.390Z</lastmod>
-      <priority>0.4</priority>
-      <changefreq>yearly</changefreq>
-    </url>
-    <url>
-      <loc>http://localhost:5173/performance</loc>
-      <lastmod>2025-06-19T06:27:28.392Z</lastmod>
-      <priority>0.4</priority>
-      <changefreq>yearly</changefreq>
-    </url>
-    <url>
-      <loc>http://localhost:5173/robots</loc>
-      <lastmod>2025-06-19T06:27:28.395Z</lastmod>
-      <priority>0.4</priority>
-      <changefreq>yearly</changefreq>
-    </url>
-    <url>
-      <loc>http://localhost:5173/meta-tags</loc>
-      <lastmod>2025-06-19T06:27:28.398Z</lastmod>
+      <loc>https://datumart.com/</loc>
+      <lastmod>2025-07-01T15:45:49.834Z</lastmod>
       <priority>0.4</priority>
       <changefreq>yearly</changefreq>
     </url></urlset>

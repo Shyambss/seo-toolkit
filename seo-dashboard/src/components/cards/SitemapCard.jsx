@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+const API = import.meta.env.VITE_API_BASE_URL;
+const sitemapUrl = `${API}/sitemap.xml`
+
 const SitemapCard = () => {
   const [count, setCount] = useState(0);
   const [lastUpdated, setLastUpdated] = useState(null);
@@ -80,7 +83,7 @@ const SitemapCard = () => {
               View Module →
             </Link>
             <a
-              href="https://seo-toolkit-08ge.onrender.com/sitemap.xml"
+              href={sitemapUrl} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:underline font-medium"
