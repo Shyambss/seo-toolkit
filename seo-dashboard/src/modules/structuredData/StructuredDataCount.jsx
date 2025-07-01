@@ -6,7 +6,7 @@ const StructuredDataCount = ({ type }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    axios.get(`/api/structured-data/${type}/count`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/structured-data/${type}/count`)
       .then((res) => setCount(res.data.count))
       .catch((err) => console.error(err));
   }, [type]);

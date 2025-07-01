@@ -26,7 +26,7 @@ const MetaTagForm = ({ fetchMetaTags, selectedTag, setSelectedTag }) => {
   // Generate keywords based on title, description, and content
   const handleGenerate = async () => {
     const { title, description, content } = formData;
-    const res = await axios.post('/api/meta/generate-keywords', { title, description, content });
+    const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/meta/generate-keywords`, { title, description, content });
     setFormData(prev => ({ ...prev, keywords: res.data.keywords }));
   };
 
@@ -35,9 +35,9 @@ const MetaTagForm = ({ fetchMetaTags, selectedTag, setSelectedTag }) => {
     e.preventDefault();
 
     if (selectedTag?._id) {
-      await axios.put(`/api/meta/${selectedTag._id}`, formData); // Update existing tag
+      await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/meta/${selectedTag._id}`, formData); // Update existing tag
     } else {
-      await axios.post('/api/meta', formData); // Add new tag
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/meta`, formData); // Add new tag
     }
 
     fetchMetaTags();

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const MetaTagList = ({ metaTags, fetchMetaTags, setSelectedTag }) => {
   const handleDelete = async (id) => {
-    await axios.delete(`/api/meta/${id}`);
+    await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/meta/${id}`);
     fetchMetaTags();
   };
 

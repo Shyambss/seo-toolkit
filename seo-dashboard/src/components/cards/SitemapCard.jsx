@@ -18,7 +18,7 @@ const SitemapCard = () => {
         setLoading(true);
         setError(null);
 
-        const res = await axios.get('/api/sitemap/get-pages');
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/sitemap/get-pages`);
         const pages = res.data || [];
 
         setCount(pages.length);

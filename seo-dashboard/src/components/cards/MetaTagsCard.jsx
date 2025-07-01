@@ -13,7 +13,7 @@ const MetaTagsCard = () => {
         setLoading(true);
         setError(null);
 
-        const res = await axios.get('/api/meta');
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/meta`);
         let tags = res.data.metaTags || [];
 
         // Sort by updatedAt descending (latest updated first)

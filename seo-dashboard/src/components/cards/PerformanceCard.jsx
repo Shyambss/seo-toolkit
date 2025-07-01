@@ -15,13 +15,13 @@ const PerformanceCard = () => {
         setLoading(true);
         setError(null);
 
-        const trackedRes = await axios.get('/api/performance/tracked');
+        const trackedRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/performance/tracked`);
         const trackedData = trackedRes.data;
 
         if (trackedData?.url) {
           setTrackedUrl(trackedData.url);
 
-          const reportsRes = await axios.get('/api/performance/reports');
+          const reportsRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/performance/reports`);
           const allReports = reportsRes.data || [];
 
           const siteReports = allReports

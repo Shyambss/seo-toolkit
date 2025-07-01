@@ -29,7 +29,7 @@ const TestimonialForm = ({ onDataChange }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/structured-data/testimonial', {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/structured-data/testimonial`, {
         url: form.url,
         jsonLD,
       });

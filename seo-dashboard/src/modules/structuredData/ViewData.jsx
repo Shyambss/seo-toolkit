@@ -10,7 +10,7 @@ const ViewData = ({ refresh }) => {
   const fetchEntries = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`/api/structured-data/${type}`);
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/structured-data/${type}`);
       if (Array.isArray(res.data.data)) {
         setEntries(res.data.data);
       } else {
@@ -27,7 +27,7 @@ const ViewData = ({ refresh }) => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this entry?')) return;
     try {
-      await axios.delete(`/api/structured-data/${type}/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/structured-data/${type}/${id}`);
       setEntries(entries.filter((entry) => entry._id !== id));
     } catch (err) {
       console.error('Error deleting structured data:', err);

@@ -14,7 +14,7 @@ const OpenGraphCard = () => {
         setLoading(true);
         setError(null);
 
-        const res = await axios.get('/api/og-tags/get');
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/og-tags/get`);
         let tags = res.data || [];
 
         tags.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));

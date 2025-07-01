@@ -9,7 +9,7 @@ const MetaTagsPage = () => {
   const [selectedTag, setSelectedTag] = useState(null);
 
   const fetchMetaTags = async () => {
-    const res = await axios.get('/api/meta');
+    const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/meta`);
     setMetaTags(res.data.metaTags);
   };
 

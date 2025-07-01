@@ -27,7 +27,7 @@ const FaqForm = ({ onDataChange }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`/api/structured-data/faq`, { url, jsonLD });
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/structured-data/faq`, { url, jsonLD });
       setMessage('✅ FAQ added');
       setUrl('');
       setQuestion('');

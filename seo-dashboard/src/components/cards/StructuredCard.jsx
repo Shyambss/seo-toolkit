@@ -15,7 +15,7 @@ const StructuredCard = () => {
         setLoading(true);
         const results = await Promise.all(
           contentTypes.map(type =>
-            axios.get(`/api/structured-data/${type}/count`).then(res => ({
+            axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/structured-data/${type}/count`).then(res => ({
               type,
               count: res.data.count || 0,
             }))

@@ -6,13 +6,13 @@ const StructuredDataList = ({ type }) => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
-    const res = await axios.get(`/api/structured-data/${type}`);
+    const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/structured-data/${type}`);
     setData(res.data.data);
   };
 
   const handleDelete = async (id) => {
     if (!confirm("Are you sure?")) return;
-    await axios.delete(`/api/structured-data/${type}/${id}`);
+    await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/structured-data/${type}/${id}`);
     fetchData();
   };
 

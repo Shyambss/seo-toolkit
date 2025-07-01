@@ -11,7 +11,7 @@ const AddStructuredDataForm = ({ type }) => {
     e.preventDefault();
     try {
       const parsed = JSON.parse(jsonLD);
-      const res = await axios.post(`/api/structured-data/${type}`, { jsonLD: parsed });
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/structured-data/${type}`, { jsonLD: parsed });
       setMessage('✅ Structured data added successfully');
       setJsonLD('{}');
     } catch (error) {

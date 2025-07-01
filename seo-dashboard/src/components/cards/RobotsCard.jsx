@@ -9,7 +9,7 @@ const RobotsCard = () => {
 
   useEffect(() => {
     axios
-      .get('/api/robots')
+      .get(`${import.meta.env.VITE_API_BASE_URL}/api/robots`)
       .then((res) => setInfo(res.data))
       .catch((err) => {
         console.error('Error fetching robots.txt data:', err);

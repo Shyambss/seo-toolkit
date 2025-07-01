@@ -10,7 +10,7 @@ const CountsOverview = () => {
     const data = {};
     for (let type of types) {
       try {
-        const res = await axios.get(`/api/structured-data/${type}/count`);
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/structured-data/${type}/count`);
         data[type] = res.data.count; // ✅ fixed line
       } catch (err) {
         console.error(`Error fetching count for ${type}:`, err);
