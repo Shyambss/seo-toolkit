@@ -1,13 +1,11 @@
-// utils/gemini.js
 const fetch = require("node-fetch");
 
+// Generate AI-based performance suggestions using Gemini
 async function generateSuggestionsWithGemini(lighthouseData) {
-    // Filter non-perfect audits to focus on what's improvable
     const failedAudits = Object.entries(lighthouseData.audits)
-        .filter(([key, val]) => val?.score !== 1 && val?.scoreDisplayMode !== "notApplicable")
-        .map(([key, val]) => `- ${val.title}: ${val.description || "Needs improvement."}`);
+        .filter(([_, val]) => val?.score !== 1 && val?.scoreDisplayMode !== "notApplicable")
+        .map(([_, val]) => `- ${val.title}: ${val.description || "Needs improvement."}`);
 
-    // Generate a clean prompt with context
     const prompt = `
 You are a web performance expert. Based on the following Lighthouse report, generate actionable performance improvement suggestions.
 
@@ -21,9 +19,9 @@ Give me a short, Limit each point to one sentence. Prioritize only the top 3–5
 just give the points and nothing more than that. 
 
 don't use *
-    `;
+`;
 
-    const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + process.env.GEMINI_API_KEY, {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -37,7 +35,7 @@ don't use *
 
     const data = await response.json();
 
-    if (!data || !data.candidates || !data.candidates.length) {
+    if (!data?.candidates?.length) {
         throw new Error("Gemini API returned no suggestions.");
     }
 

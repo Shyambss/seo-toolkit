@@ -1,7 +1,9 @@
 User-agent: *
+Disallow: /private
+Disallow: /admin
 Allow: /
-Allow: /blog
-Allow: /faq
-Allow: /testimonials
-Allow: /events
-Crawl-delay: 10
+Crawl-delay: 5
+
+User-agent: Googlebot
+Disallow: /no-google
+Allow: /public

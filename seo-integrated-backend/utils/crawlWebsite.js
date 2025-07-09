@@ -60,7 +60,6 @@ async function crawlWebsite(baseUrl, maxDepth = 2) {
     visited.add(normalizedUrl);
 
     try {
-      console.log(`🌐 Visiting: ${normalizedUrl}`);
       await page.goto(normalizedUrl, { waitUntil: "domcontentloaded", timeout: 15000 });
 
       results.push(normalizedUrl);

@@ -4,6 +4,7 @@ import SitemapCard from '../components/cards/SitemapCard';
 import PerformanceCard from '../components/cards/PerformanceCard';
 import RobotsCard from '../components/cards/RobotsCard';
 import StructuredCard from '../components/cards/StructuredCard';
+import AnalyticsCard from '../components/cards/AnalyticsCard';
 
 const Dashboard = () => {
   return (
@@ -14,6 +15,7 @@ const Dashboard = () => {
       <PerformanceCard />
       <RobotsCard />
       <StructuredCard />
+      <AnalyticsCard />
     </div>
   );
 };

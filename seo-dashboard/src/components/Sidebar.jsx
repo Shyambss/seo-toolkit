@@ -8,7 +8,8 @@ import {
   GaugeCircle,
   Bot,
   Tags,
-} from "lucide-react"; // 🆕 Import Tags icon for Meta Tags
+  Activity,
+} from "lucide-react";
 
 const navItems = [
   { label: "Dashboard", to: "/", icon: LayoutDashboard },
@@ -17,7 +18,8 @@ const navItems = [
   { label: "Sitemap", to: "/sitemap", icon: Map },
   { label: "Performance", to: "/performance", icon: GaugeCircle },
   { label: "Robots.txt", to: "/robots", icon: Bot },
-  { label: "Meta Tags", to: "/meta-tags", icon: Tags }, // ✅ Added Meta Tags module
+  { label: "Meta Tags", to: "/meta-tags", icon: Tags },
+  { label: "Analytics", to: "/analytics", icon: Activity },
 ];
 
 export default function Sidebar() {

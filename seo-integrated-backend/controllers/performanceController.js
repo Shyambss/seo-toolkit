@@ -3,7 +3,7 @@ const TrackedSite = require("../models/TrackedSite");
 const { analyzeWebsite } = require("../services/performanceService");
 const { generateSuggestionsWithGemini } = require("../services/geminiperformance");
 
-// Analyze and store report manually (with suggestions)
+// Manually analyze performance and save report with suggestions
 const analyzePerformance = async (req, res) => {
     const url = req.query.url;
     if (!url) return res.status(400).json({ error: "URL parameter is required" });
@@ -26,7 +26,7 @@ const analyzePerformance = async (req, res) => {
     }
 };
 
-// Get latest 10 reports
+// Get latest 10 performance reports
 const getReports = async (req, res) => {
     try {
         const reports = await Report.find().sort({ date: -1 }).limit(10);
@@ -47,7 +47,7 @@ const deletereport = async (req, res) => {
     }
 };
 
-// Get tracked site info
+// Get the currently tracked website info
 const getTrackedSite = async (req, res) => {
     try {
         const site = await TrackedSite.findOne();
@@ -57,7 +57,7 @@ const getTrackedSite = async (req, res) => {
     }
 };
 
-// Set tracked site + frequency
+// Set or update the tracked website and frequency
 const setTrackedSite = async (req, res) => {
     const { url, frequency } = req.body;
     if (!url) return res.status(400).json({ error: "URL is required" });

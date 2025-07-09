@@ -1,17 +1,13 @@
 const OgTag = require("../models/ogTag");
 
-// 📌 Get OG Tags
+// ✅ Get all OG Tags or a specific one by page_url
 exports.getOgTags = async (req, res) => {
     try {
         const { page_url } = req.query;
 
         if (page_url) {
             const ogTag = await OgTag.findOne({ page_url });
-
-            if (!ogTag) {
-                return res.status(404).json({ message: "No OG Tag found for this URL" });
-            }
-
+            if (!ogTag) return res.status(404).json({ message: "No OG Tag found for this URL" });
             return res.json(ogTag);
         }
 
@@ -22,15 +18,14 @@ exports.getOgTags = async (req, res) => {
     }
 };
 
-// 📌 Add OG Tag
+// ✅ Add a new OG Tag
 exports.addOgTag = async (req, res) => {
     try {
         const { page_url, og_title, og_description, og_image, og_type } = req.body;
 
+        // Prevent duplicates
         const existing = await OgTag.findOne({ page_url });
-        if (existing) {
-            return res.status(400).json({ message: "OG Tag for this URL already exists" });
-        }
+        if (existing) return res.status(400).json({ message: "OG Tag for this URL already exists" });
 
         const newOgTag = new OgTag({ page_url, og_title, og_description, og_image, og_type });
         await newOgTag.save();
@@ -41,7 +36,7 @@ exports.addOgTag = async (req, res) => {
     }
 };
 
-// 📌 Update OG Tag
+// ✅ Update OG Tag by page_url
 exports.updateOgTag = async (req, res) => {
     try {
         const { page_url, og_title, og_description, og_image, og_type } = req.body;
@@ -52,9 +47,7 @@ exports.updateOgTag = async (req, res) => {
             { new: true }
         );
 
-        if (!updatedOgTag) {
-            return res.status(404).json({ message: "OG Tag Not Found" });
-        }
+        if (!updatedOgTag) return res.status(404).json({ message: "OG Tag Not Found" });
 
         res.json({ message: "OG Tag Updated Successfully", data: updatedOgTag });
     } catch (error) {
@@ -62,16 +55,14 @@ exports.updateOgTag = async (req, res) => {
     }
 };
 
-// 📌 Delete OG Tag
+// ✅ Delete OG Tag by page_url
 exports.deleteOgTag = async (req, res) => {
     try {
         const { page_url } = req.body;
 
         const deletedOgTag = await OgTag.findOneAndDelete({ page_url });
 
-        if (!deletedOgTag) {
-            return res.status(404).json({ message: "OG Tag Not Found" });
-        }
+        if (!deletedOgTag) return res.status(404).json({ message: "OG Tag Not Found" });
 
         res.json({ message: "OG Tag Deleted Successfully" });
     } catch (error) {

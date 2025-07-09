@@ -1,17 +1,27 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
+
 const {
-    addStructuredData,
-    getStructuredData,
-    deleteStructuredData,
-    getStructuredDataCount,
-    getStructuredDataByUrl 
-} = require('../controllers/structuredDataController');
+  addStructuredData,
+  getStructuredData,
+  deleteStructuredData,
+  getStructuredDataCount,
+  getStructuredDataByUrl
+} = require('../controllers/structuredDataController')
 
-router.post('/:type', addStructuredData);
-router.get('/:type', getStructuredData);
-router.delete('/:type/:id', deleteStructuredData);
-router.get('/:type/count', getStructuredDataCount);
-router.get('/:type/single', getStructuredDataByUrl);
+// Add structured data
+router.post('/:type', addStructuredData)
 
-module.exports = router;
+// Get all structured data for a type
+router.get('/:type', getStructuredData)
+
+// Delete specific structured data by ID
+router.delete('/:type/:id', deleteStructuredData)
+
+// Get count by type
+router.get('/:type/count', getStructuredDataCount)
+
+// Get data by URL (per type)
+router.get('/:type/single', getStructuredDataByUrl)
+
+module.exports = router

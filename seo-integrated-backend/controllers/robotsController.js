@@ -4,7 +4,6 @@ const Robots = require('../models/robotsModel');
 const generateRobotsTxt = require('../utils/generateRobotsTxt');
 
 // GET robots configuration
-// GET robots configuration with extra info
 exports.getRobots = async (req, res) => {
   try {
     const config = await Robots.findOne();

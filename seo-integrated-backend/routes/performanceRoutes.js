@@ -9,11 +9,16 @@ const {
 
 const router = express.Router();
 
+// Manual performance check
 router.get("/analyze", analyzePerformance);
+
+// Get latest reports
 router.get("/reports", getReports);
+
+// Delete a report
 router.delete("/reports/:id", deletereport);
 
-// New endpoints for tracked site config
+// Tracked site configuration
 router.get("/tracked", getTrackedSite);
 router.post("/tracked", setTrackedSite);
 

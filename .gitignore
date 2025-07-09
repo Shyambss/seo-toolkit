@@ -8,6 +8,13 @@ logs/
 # dotenv
 .env
 
+#package-lock.json
+package-lock.json
+
+#for google analytics
+config/ga-token.json
+config/ga-oauth.json
+
 # build output
 seo-dashboard/dist/
 seo-integrated-backend/dist/

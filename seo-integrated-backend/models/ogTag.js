@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Schema for Open Graph Tags
 const OgTagSchema = new mongoose.Schema({
     page_url: { type: String, required: true, unique: true },
     og_title: { type: String, required: true },

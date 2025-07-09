@@ -1,6 +1,6 @@
-// models/Report.js
 const mongoose = require("mongoose");
 
+// Schema for performance report
 const reportSchema = new mongoose.Schema({
     url: String,
     date: Date,

@@ -8,6 +8,8 @@ import StructuredDataDashboard from './modules/structuredData/StructuredDataDash
 import Performance from "./modules/Performance/Performance";
 import RobotsPage from "./modules/robots/RobotsPage";
 import MetaTagsPage from "./modules/MetaTags/MetaTagsPage";
+import AnalyticsPage from './modules/Analytics/AnalyticsPage'
+
 
 export default function App() {
   return (
@@ -25,6 +27,7 @@ export default function App() {
             <Route path="/robots" element={<RobotsPage />} />
             <Route path="/meta-tags" element={<MetaTagsPage />} />
             <Route path="/" element={<Dashboard />} />
+            <Route path="/analytics" element={<AnalyticsPage />} />
           </Routes>
         </main>
       </div>

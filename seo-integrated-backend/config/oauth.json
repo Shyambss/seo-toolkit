@@ -1,0 +1,11 @@
+{
+  "web": {
+    "client_id": "498210676341-2ebt32jov23v1d37t8v7egvga0anhr89.apps.googleusercontent.com",
+    "project_id": "seo-toolkit-464716",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "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",
+    "redirect_uris": ["http://localhost:5000/api/analytics/oauth2callback"]
+  }
+}
