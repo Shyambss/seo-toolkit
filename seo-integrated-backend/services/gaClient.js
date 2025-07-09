@@ -1,4 +1,3 @@
-// services/gaClient.js
 const { google } = require('googleapis');
 const path = require('path');
 const fs = require('fs');
@@ -88,15 +87,23 @@ module.exports = {
 
     const requestPayload = {
       dateRanges: [{ startDate, endDate }],
-      dimensions: [{ name: 'eventName' }, { name: 'date' }],
-      metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
+      dimensions: [
+        { name: 'eventName' },
+        { name: 'date' }
+      ],
+      metrics: [
+        { name: 'eventCount' },
+        { name: 'totalUsers' }
+      ],
       orderBys: [{
         desc: false,
         dimension: { dimensionName: 'date' }
       }],
-      limit: 1000,
+      limit: 1000
     };
 
+    // Optional filtering by event name
+    /*
     if (eventName && eventName !== 'ALL_CUSTOM_EVENTS') {
       requestPayload.dimensionFilter = {
         filter: {
@@ -107,17 +114,8 @@ module.exports = {
           },
         },
       };
-    } else {
-      requestPayload.dimensionFilter = {
-        filter: {
-          fieldName: 'eventName',
-          stringFilter: {
-            matchType: 'BEGINS_WITH',
-            value: 'Tag - ',
-          },
-        },
-      };
     }
+    */
 
     try {
       const response = await analyticsData.properties.runReport({
@@ -128,17 +126,19 @@ module.exports = {
       const reportData = [];
       if (response.data.rows) {
         response.data.rows.forEach(row => {
-          const dimensionValues = row.dimensionValues.map(dv => dv.value);
-          const metricValues = row.metricValues.map(mv => mv.value);
+          const [eventNameVal, dateVal] = row.dimensionValues.map(dv => dv.value);
+          const [eventCount, totalUsers] = row.metricValues.map(mv => mv.value);
+
           reportData.push({
-            eventName: dimensionValues[0],
-            date: dimensionValues[1],
-            eventCount: parseInt(metricValues[0]),
-            totalUsers: parseInt(metricValues[1]),
+            eventName: eventNameVal,
+            date: dateVal,
+            eventCount: parseInt(eventCount),
+            totalUsers: parseInt(totalUsers)
           });
         });
       }
-      return reportData;
+
+      return { report: reportData };
 
     } catch (error) {
       console.error('Error fetching GA4 custom event report:', error.message);

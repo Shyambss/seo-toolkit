@@ -11,9 +11,9 @@ logs/
 #package-lock.json
 package-lock.json
 
-#for google analytics
-config/ga-token.json
-config/ga-oauth.json
+# Ignore GA and OAuth credentials
+seo-integrated-backend/config/ga-token.json
+seo-integrated-backend/config/oauth.json
 
 # build output
 seo-dashboard/dist/
