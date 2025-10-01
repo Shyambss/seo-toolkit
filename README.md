@@ -40,6 +40,8 @@ This is your all-in-one backend for managing SEO on any website. Built with **No
 
 * **Node.js & Express** for the backend
 * **MongoDB** for data storage
+* **HTTP Client:** Axios
+* **Package Manager:** npm
 * **Integrations:** Google PageSpeed, Gemini AI, GA4, GTM, Puppeteer
 
 ---
@@ -108,7 +110,7 @@ Enable the following APIs in your Google Cloud project from `https://console.clo
 
 2. Sign in with your Google account and create a new API key.
 
-3. (Optional but recommended) Link the key to a Google Cloud Project in your [Google Cloud Console](https://console.cloud.google.com/):
+3. Link the key to a Google Cloud Project in your [Google Cloud Console](https://console.cloud.google.com/):
 
    * Create a new project (or use an existing one).
    * Enable the **Generative Language API** (`generativelanguage.googleapis.com`).
@@ -203,4 +205,5 @@ npm run dev
   * Paste the `<iframe>` inside the `<body>` of `index.html`.
 
 ---
+
 
